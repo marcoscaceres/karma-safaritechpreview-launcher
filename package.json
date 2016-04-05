@@ -1,0 +1,30 @@
+{
+  "name": "karma-safaritechpreview-launcher",
+  "version": "0.0.1",
+  "description": "A Karma plugin. Launcher for Safari Technology Preview.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoscaceres/karma-safaritechpreview-launcher.git"
+  },
+  "keywords": [
+    "karam",
+    "safari",
+    "safari",
+    "technology",
+    "preview"
+  ],
+  "author": "Marcos Cáceres",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcoscaceres/karma-safaritechpreview-launcher/issues"
+  },
+  "homepage": "https://github.com/marcoscaceres/karma-safaritechpreview-launcher#readme",
+  "devDependencies": {
+    "fs-promise": "^0.5.0",
+    "marcosc-async": "^1.1.3"
+  }
+}
