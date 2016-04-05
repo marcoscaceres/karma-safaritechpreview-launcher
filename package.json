@@ -11,7 +11,8 @@
     "url": "git+https://github.com/marcoscaceres/karma-safaritechpreview-launcher.git"
   },
   "keywords": [
-    "karam",
+    "karma",
+    "karma-plugin",
     "safari",
     "safari",
     "technology",
