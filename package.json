@@ -23,7 +23,7 @@
     "url": "https://github.com/marcoscaceres/karma-safaritechpreview-launcher/issues"
   },
   "homepage": "https://github.com/marcoscaceres/karma-safaritechpreview-launcher#readme",
-  "devDependencies": {
+  "dependencies": {
     "fs-promise": "^0.5.0",
     "marcosc-async": "^1.1.3"
   }
