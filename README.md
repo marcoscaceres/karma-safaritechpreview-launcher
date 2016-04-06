@@ -2,7 +2,7 @@
 A Karma plugin. Launcher for [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/).
 
 ## Installation
-**Note, this plugin requires Node version 5.0 or higher.**
+**Note, this plugin requires Node version 4.0 or higher.**
 You can check your node version by typing `node --version`.
 
 ```bash
