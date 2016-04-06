@@ -1,6 +1,6 @@
 {
   "name": "karma-safaritechpreview-launcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Karma plugin. Launcher for Safari Technology Preview.",
   "main": "index.js",
   "scripts": {
