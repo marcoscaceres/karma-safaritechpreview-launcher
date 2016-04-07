@@ -1,8 +1,8 @@
 {
   "name": "karma-safaritechpreview-launcher",
-  "version": "0.0.3",
-  "engines" : {
-    "node" : ">=4"
+  "version": "0.0.4",
+  "engines": {
+    "node": ">=4"
   },
   "description": "A Karma plugin. Launcher for Safari Technology Preview.",
   "main": "index.js",
@@ -16,7 +16,6 @@
   "keywords": [
     "karma",
     "karma-plugin",
-    "safari",
     "safari",
     "technology",
     "preview"
