@@ -17,7 +17,7 @@ module.exports = function(config) {
     browsers: ['SafariTechPreview'],
     // optionally, if not using "detectBrowsers"
     plugins: [
-      require('karma-safaritechpreview-launcher’), 
+      require('karma-safaritechpreview-launcher'), 
     ] 
  });
 };
