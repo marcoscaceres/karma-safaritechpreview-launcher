@@ -14,7 +14,7 @@ npm install karma-safaritechpreview-launcher --save-dev
 // karma.conf.js
 module.exports = function(config) {
   config.set({
-    browsers: ['SafariTechPreview']
+    browsers: ['SafariTechPreview'],
     // optionally, if not using "detectBrowsers"
     plugins: [
       require('karma-safaritechpreview-launcher’), 
