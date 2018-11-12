@@ -25,7 +25,7 @@ const SafariTechPreviewBrowser = function (baseBrowserDecorator) {
       throw err;
     }
     const content = data.toString().replace('%URL%', url);
-    const staticHtmlPath = self._tempDir + '/redirect.html';
+    const staticHtmlPath = path.join(process.env.HOME, 'Library/Containers/com.apple.SafariTechnologyPreview/Data/redirect.html');
     try {
       yield fs.writeFile(staticHtmlPath, content);
     } catch (err) {
