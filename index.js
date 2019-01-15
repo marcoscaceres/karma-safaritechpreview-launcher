@@ -9,8 +9,12 @@
 /*jshint node: true*/
 "use strict";
 const async = require('marcosc-async');
-const fs = require('fs-promise');
+const fs = require('fs');
 const path = require('path');
+const {promisify} = require('util');
+
+const readFileAsync = promisify(fs.readFile);
+const writeFileAsync = promisify(fs.writeFile);
 
 const SafariTechPreviewBrowser = function (baseBrowserDecorator) {
   baseBrowserDecorator(this);
@@ -20,14 +24,14 @@ const SafariTechPreviewBrowser = function (baseBrowserDecorator) {
     const self = this;
     let data;
     try {
-      data = yield fs.readFile(HTML_TPL);
+      data = yield readFileAsync(HTML_TPL);
     } catch (err) {
       throw err;
     }
     const content = data.toString().replace('%URL%', url);
     const staticHtmlPath = path.join(process.env.HOME, 'Library/Containers/com.apple.SafariTechnologyPreview/Data/redirect.html');
     try {
-      yield fs.writeFile(staticHtmlPath, content);
+      yield writeFileAsync(staticHtmlPath, content);
     } catch (err) {
       throw err;
     }
