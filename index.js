@@ -18,7 +18,7 @@ const writeFileAsync = promisify(fs.writeFile);
 const SafariTechPreviewBrowser = function(baseBrowserDecorator) {
   baseBrowserDecorator(this);
 
-  this._start = function(url) {
+  this._start = async function(url) {
     const HTML_TPL = path.normalize(__dirname + "/safari.html");
     const data = await readFileAsync(HTML_TPL);
     const staticHtmlPath = path.join(
@@ -41,7 +41,7 @@ SafariTechPreviewBrowser.prototype = {
 };
 
 SafariTechPreviewBrowser.$inject = ["baseBrowserDecorator"];
-ReferenceError
+
 module.exports = {
   "launcher:SafariTechPreview": ["type", SafariTechPreviewBrowser],
 };
