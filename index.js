@@ -8,43 +8,40 @@
  */
 /*jshint node: true*/
 "use strict";
-const async = require('marcosc-async');
-const fs = require('fs-promise');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
+const { promisify } = require("util");
 
-const SafariTechPreviewBrowser = function (baseBrowserDecorator) {
+const readFileAsync = promisify(fs.readFile);
+const writeFileAsync = promisify(fs.writeFile);
+
+const SafariTechPreviewBrowser = function(baseBrowserDecorator) {
   baseBrowserDecorator(this);
 
-  this._start = async(function * (url) {
-    const HTML_TPL = path.normalize(__dirname + '/safari.html');
-    const self = this;
-    let data;
-    try {
-      data = yield fs.readFile(HTML_TPL);
-    } catch (err) {
-      throw err;
-    }
-    const content = data.toString().replace('%URL%', url);
-    const staticHtmlPath = path.join(process.env.HOME, 'Library/Containers/com.apple.SafariTechnologyPreview/Data/redirect.html');
-    try {
-      yield fs.writeFile(staticHtmlPath, content);
-    } catch (err) {
-      throw err;
-    }
+  this._start = async url => {
+    const HTML_TPL = path.normalize(__dirname + "/safari.html");
+    const data = await readFileAsync(HTML_TPL);
+    const staticHtmlPath = path.join(
+      process.env.HOME,
+      "Library/Containers/com.apple.SafariTechnologyPreview/Data/redirect.html"
+    );
+    const content = data.toString().replace("%URL%", url);
+    await writeFileAsync(staticHtmlPath, content);
     self._execCommand(self._getCommand(), [staticHtmlPath]);
-  }, this);
+  };
 };
 
 SafariTechPreviewBrowser.prototype = {
-  name: 'SafariTechPreview',
+  name: "SafariTechPreview",
   DEFAULT_CMD: {
-    darwin: '/Applications/Safari\ Technology\ Preview.app/Contents/MacOS/Safari\ Technology\ Preview',
+    darwin:
+      "/Applications/Safari Technology Preview.app/Contents/MacOS/Safari Technology Preview",
   },
-  ENV_CMD: 'SAFARI_TECHPREVIEW_BIN',
+  ENV_CMD: "SAFARI_TECHPREVIEW_BIN",
 };
 
-SafariTechPreviewBrowser.$inject = ['baseBrowserDecorator'];
+SafariTechPreviewBrowser.$inject = ["baseBrowserDecorator"];
 
 module.exports = {
-  'launcher:SafariTechPreview': ['type', SafariTechPreviewBrowser]
+  "launcher:SafariTechPreview": ["type", SafariTechPreviewBrowser],
 };
